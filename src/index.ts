@@ -1,9 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import swaggerUi from 'swagger-ui-express';
+import path from 'path';
 import routes from './routes';
-import { swaggerSpec } from './config/swagger';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,12 +16,13 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Swagger UI setup
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
-  customCss: '.swagger-ui .topbar { display: none }',
-  customSiteTitle: 'Bitespeed Identity API',
-  customfavIcon: '/favicon.ico'
-}));
+// Serve static files (for our custom API documentation)
+app.use(express.static('public'));
+
+// Custom API Documentation route
+app.get('/api-docs', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/api-docs.html'));
+});
 
 // API routes
 app.use('/', routes);
@@ -35,13 +35,18 @@ app.get('/', (req, res) => {
     environment: NODE_ENV,
     description: 'Identity reconciliation system for FluxKart.com - linking Dr. Emmett Brown\'s purchases across time!',
     documentation: {
-      swagger: req.protocol + '://' + req.get('host') + '/api-docs',
-      description: 'Interactive API documentation with live testing'
+      interactive: req.protocol + '://' + req.get('host') + '/api-docs',
+      description: 'Beautiful interactive API documentation with live testing'
     },
     endpoints: {
       identify: 'POST /identify',
       health: 'GET /health',
       test: 'GET /test'
+    },
+    assignment: {
+      github: 'https://github.com/sashank1508/bitespeed-identity-reconciliation',
+      author: 'Sashank Pintu',
+      submission: 'Bitespeed Backend Assignment'
     }
   });
 });
