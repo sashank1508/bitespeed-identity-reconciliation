@@ -44,8 +44,8 @@ app.get('/', (req, res) => {
       test: 'GET /test'
     },
     assignment: {
-      github: 'https://github.com/sashank1508/bitespeed-identity-reconciliation',
-      author: 'Sashank',
+      github: 'https://github.com/21ec01045sandy/bitespeed-identity-reconciliation',
+      author: 'Sandeep',
       submission: 'Bitespeed Backend Assignment'
     }
   });
