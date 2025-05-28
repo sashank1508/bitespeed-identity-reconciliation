@@ -1,11 +1,23 @@
 import sqlite3 from 'sqlite3';
 import { Contact, ContactInsert } from '../types';
 
+// Global database instance for serverless environments
+let globalDb: sqlite3.Database | null = null;
+
 class Database {
   private db: sqlite3.Database;
 
   constructor() {
-    this.db = new sqlite3.Database('contacts.db');
+    // Use global in-memory database for serverless environments
+    if (process.env.NODE_ENV === 'production') {
+      if (!globalDb) {
+        globalDb = new sqlite3.Database(':memory:');
+        console.log('Created new in-memory database for production');
+      }
+      this.db = globalDb;
+    } else {
+      this.db = new sqlite3.Database('contacts.db');
+    }
     this.initializeDatabase();
   }
 
