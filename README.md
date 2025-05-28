@@ -13,10 +13,12 @@ A Node.js/TypeScript service for identifying and linking customer contacts acros
 
 ### Interactive Documentation
 
-Visit the **Swagger UI** for interactive API testing:
+🎨 **Beautiful Custom API Documentation** with live testing:
 
 - **Local**: <http://localhost:3000/api-docs>
-- **Production**: <https://bitespeed-identity-reconciliation-nse3btem5.vercel.app/api-docs>
+- **Production**: <https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/api-docs>
+
+*Features interactive testing buttons, professional design, and comprehensive examples!*
 
 ### Endpoints Overview
 
@@ -137,14 +139,15 @@ src/
 
 ## 🌐 Deployment
 
-The service is deployed and accessible at: **<https://bitespeed-identity-reconciliation-nse3btem5.vercel.app>**
+The service is deployed and accessible at: **<https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app>**
 
 ### Live API Endpoints
 
-- **Health Check**: `GET https://bitespeed-identity-reconciliation-nse3btem5.vercel.app/health`
-- **Identity Service**: `POST https://bitespeed-identity-reconciliation-nse3btem5.vercel.app/identify`
-- **Test Endpoint**: `GET https://bitespeed-identity-reconciliation-nse3btem5.vercel.app/test`
-- **🎯 API Documentation (Swagger UI)**: `https://bitespeed-identity-reconciliation-nse3btem5.vercel.app/api-docs`
+- **🏠 Home**: `GET https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/`
+- **🩺 Health Check**: `GET https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/health`
+- **🔍 Identity Service**: `POST https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/identify`
+- **🧪 Test Endpoint**: `GET https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/test`
+- **📚 API Documentation**: `https://bitespeed-identity-reconciliation-3stdenqxz.vercel.app/api-docs`
 
 ## 📝 License
 
