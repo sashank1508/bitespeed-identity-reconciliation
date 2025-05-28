@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
     },
     assignment: {
       github: 'https://github.com/sashank1508/bitespeed-identity-reconciliation',
-      author: 'Sashank Pintu',
+      author: 'Sashank',
       submission: 'Bitespeed Backend Assignment'
     }
   });
