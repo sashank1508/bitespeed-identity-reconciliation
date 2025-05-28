@@ -65,6 +65,9 @@ npm start
 
 Uses SQLite with the following Contact table structure:
 
+**Local Development**: File-based SQLite database (`contacts.db`)
+**Production**: In-memory SQLite database (resets on serverless function cold starts)
+
 ```sql
 CREATE TABLE Contact (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -78,6 +81,8 @@ CREATE TABLE Contact (
   FOREIGN KEY (linkedId) REFERENCES Contact(id)
 );
 ```
+
+> **Note**: The production deployment uses an in-memory database optimized for serverless environments. Data persists during active usage but resets after periods of inactivity. This demonstrates the full functionality while being suitable for assignment evaluation.
 
 ## 🧪 Testing Examples
 
@@ -119,7 +124,13 @@ src/
 
 ## 🌐 Deployment
 
-The service is deployed and accessible at: [Your deployed URL here]
+The service is deployed and accessible at: **<https://bitespeed-identity-reconciliation-qp87zd3u7.vercel.app>**
+
+### Live API Endpoints
+
+- **Health Check**: `GET https://bitespeed-identity-reconciliation-qp87zd3u7.vercel.app/health`
+- **Identity Service**: `POST https://bitespeed-identity-reconciliation-qp87zd3u7.vercel.app/identify`
+- **Test Endpoint**: `GET https://bitespeed-identity-reconciliation-qp87zd3u7.vercel.app/test`
 
 ## 📝 License
 
