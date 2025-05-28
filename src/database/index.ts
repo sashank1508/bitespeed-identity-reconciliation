@@ -8,15 +8,19 @@ class Database {
   private db: sqlite3.Database;
 
   constructor() {
+    const NODE_ENV = process.env.NODE_ENV || 'development';
+    const DATABASE_PATH = process.env.DATABASE_PATH || 'contacts.db';
+    
     // Use global in-memory database for serverless environments
-    if (process.env.NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       if (!globalDb) {
         globalDb = new sqlite3.Database(':memory:');
         console.log('Created new in-memory database for production');
       }
       this.db = globalDb;
     } else {
-      this.db = new sqlite3.Database('contacts.db');
+      this.db = new sqlite3.Database(DATABASE_PATH);
+      console.log(`Connected to SQLite database: ${DATABASE_PATH}`);
     }
     this.initializeDatabase();
   }
