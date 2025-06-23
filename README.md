@@ -60,7 +60,7 @@ Simple API test endpoint.
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/sashank1508/bitespeed-identity-reconciliation.git
 cd bitespeed-identity-reconciliation
 
 # Install dependencies
